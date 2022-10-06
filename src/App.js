@@ -20,11 +20,15 @@ function App() {
 
   return (
     <div className="container mx-auto flex justify-center">
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 p-6 gap-4">
-        {images.map((image) => (
-          <ImageCard key={image.id} image={image} />
-        ))}
-      </div>
+      {isLoading ? (
+        <h1 className="text-3xl sm:text-6xl mt-32">Loading...</h1>
+      ) : (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 p-6 gap-4">
+          {images.map((image) => (
+            <ImageCard key={image.id} image={image} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
